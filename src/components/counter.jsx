@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   // special state property/object render method needs
   state = {
-    count: 10,
+    count: 0,
     // rendering list
     tags: ["tag1", "tag2", "tag3"],
     // imageUrl: "https://picsum.photos/200",
@@ -17,8 +17,9 @@ class Counter extends Component {
         <span className={this.getBadgeClasses()}>{this.formatCount()} </span>
 
         {/* Handling events */}
+        {/* and when arrow function has parameters */}
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement({ id: 1 })}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -38,9 +39,13 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement() {
-    console.log("Increment clicked");
-  }
+  // Event handler function for button clicked
+  handleIncrement = (product) => {
+    // check to all are okay
+    // console.log("Increment clicked", this);
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
   getBadgeClasses() {
     let classes = "badge m-1 bg-";
