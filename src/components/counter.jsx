@@ -6,11 +6,23 @@ class Counter extends Component {
   };
   // must render method
 
+  handleIncrement = () => {
+    // To update the value by clicking the Increment button
+    // We have to call the built in setState method
+    // and pass a object
+    this.setState({ justName: this.stateExample.countNow++ });
+  };
+
   render() {
     return (
       <div>
         <span className={this.changeBadge()}>{this.showCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </div>
     );
   }
