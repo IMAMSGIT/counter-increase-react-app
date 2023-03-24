@@ -6,10 +6,11 @@ class Counter extends Component {
   };
   // must render method
 
-  handleIncrement = () => {
+  handleIncrement = (product) => {
     // To update the value by clicking the Increment button
     // We have to call the built in setState method
     // and pass a object
+    console.log(product);
     this.setState({ justName: this.stateExample.countNow++ });
   };
 
@@ -18,7 +19,7 @@ class Counter extends Component {
       <div>
         <span className={this.changeBadge()}>{this.showCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement()}
           className="btn btn-secondary btn-sm"
         >
           Increment
