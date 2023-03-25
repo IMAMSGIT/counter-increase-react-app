@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Counters from "./counters";
 class Counter extends Component {
   // state object to pass data
   stateExample = {
-    countNow: 0,
+    countNow: this.props.value,
   };
   // must render method
 
@@ -11,10 +12,13 @@ class Counter extends Component {
     // We have to call the built in setState method
     // and pass a object
     console.log(product);
+    // in setState your chosen name: the updated property name
     this.setState({ justName: this.stateExample.countNow++ });
   };
 
   render() {
+    // Every component has props,thus we can set values in state
+    // property which is an JS object
     return (
       <div>
         <span className={this.changeBadge()}>{this.showCount()}</span>
