@@ -6,14 +6,17 @@ class Counters extends Component {
       { id: 1, value: 4 },
       { id: 2, value: 5 },
       { id: 3, value: 6 },
-      { id: 4, value: 7 },
+      { id: 4, value: 70 },
     ],
   };
   render() {
     return (
       <div>
         {this.state.countersPass.map((cPass) => (
-          <Counter key={cPass.id} value={cPass.value}></Counter>
+          // valuC becomes a property of this.props
+          <Counter key={cPass.id} valueC={cPass.value}>
+            <h4>Counter #{cPass.id}</h4>
+          </Counter>
         ))}
       </div>
     );
