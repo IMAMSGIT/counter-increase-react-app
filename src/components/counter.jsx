@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   // state object to pass data
   stateExample = {
-    countNow: 44,
+    countNow: 0,
   };
   // must render method
 
