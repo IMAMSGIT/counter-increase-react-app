@@ -10,6 +10,14 @@ class Counters extends Component {
     ],
   };
 
+  handleReset = () => {
+    const reset = this.state.countersPass.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ countersPass: reset });
+  };
+
   handleDelete = (counterID) => {
     const counters = this.state.countersPass.filter(
       (myCounter) => myCounter.id !== counterID
@@ -19,6 +27,13 @@ class Counters extends Component {
   render() {
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-sm m-2"
+        >
+          Reset
+        </button>
+
         {this.state.countersPass.map((cPass) => (
           // valuC becomes a property of this.props
           <Counter
@@ -28,9 +43,7 @@ class Counters extends Component {
             counterTogether={cPass}
             // valueC={cPass.value}
             // id={cPass.id}
-          >
-            <h4>Counter #{cPass.id}</h4>
-          </Counter>
+          ></Counter>
         ))}
       </div>
     );
