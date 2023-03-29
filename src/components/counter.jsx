@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 class Counter extends Component {
-  // state object to pass data
-  stateExample = {
-    countNow: this.props.counterTogether.value,
-  };
   // must render method
-
-  handleIncrement = (product) => {
-    this.setState({ justName: this.stateExample.countNow++ });
-  };
-
   render() {
     // Every component has props,thus we can set values in state
     // property which is an JS object
@@ -19,7 +10,7 @@ class Counter extends Component {
         {this.props.children}
         <span className={this.changeBadge()}>{this.showCount()}</span>
         <button
-          onClick={() => this.handleIncrement(this.countNow)}
+          onClick={() => this.props.onIncrement(this.props.counterTogether)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -34,13 +25,13 @@ class Counter extends Component {
     );
   }
   showCount() {
-    return this.stateExample.countNow === 0
-      ? "Zero"
-      : this.stateExample.countNow;
+    const { value } = this.props.counterTogether;
+    return value === 0 ? "Zero" : value;
   }
   changeBadge() {
     let classes = "badge bg-";
-    classes += this.stateExample.countNow === 0 ? "warning m-2" : "primary m-2";
+    classes +=
+      this.props.counterTogether.value === 0 ? "warning m-2" : "primary m-2";
     return classes;
   }
 }
