@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 class NavBar extends Component {
   render() {
+    console.log("Navbar-rendered");
     return (
       <nav className="navbar navbar-light bg-light">
         <a className="navbar-brand">
